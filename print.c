@@ -7,13 +7,15 @@
  */
 void pint(stack_t **stack_list, unsigned int line_num)
 {
-if (!*stack_list)
-{
-fprintf(stderr, "L%u: can't pint, stack empty\n", line_num);
-free_all();
-exit(EXIT_FAILURE);
-}
-printf("%d\n", (*stack_list)->n);
+if (*stack_list == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_num);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*stack_list);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack_list)->n);
 }
 
 /**
@@ -23,14 +25,15 @@ printf("%d\n", (*stack_list)->n);
  */
 void pall(stack_t **stack_list, unsigned int line_num)
 {
-stack_t *temporary_size = *stack_list;
-(void) line_num;
+stack_t *h;
+(void)line_num;
 
-if (!temporary_size)
+h = *stack_list;
+if (h == NULL)
 return;
-while (temporary_size)
+while (h)
 {
-printf("%d\n", temporary_size->n);
-temporary_size = temporary_size->next;
+printf("%d\n", h->n);
+h = h->next;
 }
 }

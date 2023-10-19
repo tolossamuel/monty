@@ -6,40 +6,40 @@
  * @av: Array of command-line arguments
  * Return: 0 for Success, 1 for Failure
  */
-int main(int num, char **av)
+int main(int argc, char **argv[])
 {
-char *opcode;
+char *content;
+FILE *file;
+size_t size = 0;
+ssize_t read_line = 1;
+stack_t *stack = NULL;
+unsigned int counter = 0;
 
-if (num != 2)
+if (argc != 2)
 {
 	fprintf(stderr, "USAGE: monty file\n");
-	return (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
-if (start_vars(&var) != 0)
+file = fopen(argv[1], "r");
+bus.file = file;
+if (!file)
 {
-	return (EXIT_FAILURE);
+	fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+	exit(EXIT_FAILURE);
 }
-var.file_pointer = fopen(av[1], "r");
-if (!var.file_pointer)
+while (read_line > 0)
 {
-	fprintf(stderr, "Error: Can't open file %s\n", av[1]);
-	free_all();
-	return (EXIT_FAILURE);
-}
-while (getline(&var.buffer, &var.temporary_size, var.file_pointer) != EOF)
-{
-	opcode = strtok(var.buffer, " \r\t\n");
-	if (opcode != NULL)
+	content = NULL;
+	read_line = getline(&content, &size, file);
+	bus.content = content;
+	counter++;
+	if (read_line > 0)
 	{
-		if (call_funct(&var, opcode) == EXIT_FAILURE)
-		{
-			free_all();
-			return (EXIT_FAILURE);
-		}
+		execute(content, &stack, counter, file);
 	}
-	var.current_line_number++;
+	free(content);
 }
-free_all();
-return (EXIT_SUCCESS);
+free_stack(stack);
+fclose(file);
+return (0);
 }
-

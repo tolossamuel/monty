@@ -61,23 +61,20 @@ struct stack_s *next;
  * the program, including file handling, buffers, a dictionary of opcodes, the
  * stack head, the current line number, and the program's operation mode.
  */
-typedef struct glob_var
+typedef struct bus_s
 {
-FILE *file_pointer;
-char *buffer;
-size_t temporary_size;
-instruction_t *opcode_dictionary;
-stack_t *stack_head;
-unsigned int current_line_number;
-int operation_mode;
-} vars;
-
-extern vars var;
-vars var;
+	char *arg;
+	FILE *file;
+	char *content;
+	int LiFi;
+}  bus_t;
+extern bus_t bus;
 
 void pall(stack_t **stack_list, unsigned int line_num);
 void push(stack_t **stack_list, unsigned int line_num);
 void pint(stack_t **stack_list, unsigned int line_num);
-void push(stack_t **stack_list, unsigned int line_num);
+void addNode(stack_t **head, int n);
+void addQueue(stack_t **head, int n);
+void pop(stack_t **stack_list, unsigned int line_num);
 
 #endif
