@@ -1,1 +1,1 @@
-team projects by Naol Ketema and Samuel Tolossa
+Naol and Samuel alx projects
