@@ -2,8 +2,8 @@
 
 /**
  * main - Entry point for the LIFO/FILO program
- * @num: Number of command-line arguments
- * @av: Array of command-line arguments
+ * @argc: Number of command-line arguments
+ * @argv: Array of command-line arguments
  * Return: 0 for Success, 1 for Failure
  */
 int main(int argc, char **argv[])

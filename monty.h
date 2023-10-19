@@ -48,18 +48,12 @@ struct stack_s *next;
 } stack_t;
 
 /**
- * struct glob_var - Global Variables for Program
- * @file_pointer: A pointer to the file being processed
- * @buffer: A character buffer used for temporary storage
- * @temporary_size: The size of temporary storage buffer
- * @opcode_dictionary: A pointer to the opcode dictionary
- * @stack_head: A pointer to the head of the stack
- * @current_line_number: The current line number in the input file
- * @operation_mode: The current mode of operation
- *
- * Description: This structure defines a collection of global variables used by
- * the program, including file handling, buffers, a dictionary of opcodes, the
- * stack head, the current line number, and the program's operation mode.
+ * struct bus_s - variables -args, file, line content
+ * @arg: value
+ * @file: pointer to monty file
+ * @content: line content
+ * @LiFi: flag change stack <-> queue
+ * Description: carries values through the program
  */
 typedef struct bus_s
 {
@@ -77,4 +71,19 @@ void addNode(stack_t **head, int n);
 void addQueue(stack_t **head, int n);
 void pop(stack_t **stack_list, unsigned int line_num);
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
+void add(stack_t **head, unsigned int counter);
+void div(stack_t **head, unsigned int counter);
+void mod(stack_t **head, unsigned int counter);
+void mul(stack_t **head, unsigned int counter);
+void nop(stack_t **head, unsigned int counter);
+void pchar(stack_t **head, unsigned int counter);
+void pstr(stack_t **head, unsigned int counter);
+void f_rotl(stack_t **head,  __attribute__((unused)) unsigned int counter);
+void queue(stack_t **head, unsigned int counter);
+void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
+void f_swap(stack_t **head, unsigned int counter);
+void f_sub(stack_t **head, unsigned int counter);
+void free_stack(stack_t *head);
+void f_stack(stack_t **head, unsigned int counter);
+
 #endif

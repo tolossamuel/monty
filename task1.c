@@ -57,4 +57,3 @@ addNode(stack_list, n);
 else
 addQueue(stack_list, n);
 }
-

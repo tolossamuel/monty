@@ -8,14 +8,14 @@
 void pint(stack_t **stack_list, unsigned int line_num)
 {
 if (*stack_list == NULL)
-	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", line_num);
-		fclose(bus.file);
-		free(bus.content);
-		free_stack(*stack_list);
-		exit(EXIT_FAILURE);
-	}
-	printf("%d\n", (*stack_list)->n);
+{
+fprintf(stderr, "L%u: can't pint, stack empty\n", line_num);
+fclose(bus.file);
+free(bus.content);
+free_stack(*stack_list);
+exit(EXIT_FAILURE);
+}
+printf("%d\n", (*stack_list)->n);
 }
 
 /**
@@ -36,4 +36,16 @@ while (h)
 printf("%d\n", h->n);
 h = h->next;
 }
+}
+
+/**
+  *nop- nothing
+  *@head: stack head
+  *@counter: line_number
+  *Return: no return
+ */
+void nop(stack_t **head, unsigned int counter)
+{
+(void) counter;
+(void) head;
 }
