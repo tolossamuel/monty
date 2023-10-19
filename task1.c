@@ -1,22 +1,26 @@
 #include "monty.h"
 
 /**
- * pall - Print the elements in a doubly linked list
+ * pop - Delete top of list
  * @stack_list: A doubly linked list
  * @line_num: The line number in the file being executed
  */
-void pall(stack_t **stack_list, unsigned int line_num)
+void pop(stack_t **stack_list, unsigned int line_num)
 {
-stack_t *temporary_size = *stack_list;
-(void) line_num;
+stack_t *temporary_size;
 
-if (!temporary_size)
-return;
-while (temporary_size)
+if (!*stack_list)
 {
-printf("%d\n", temporary_size->value);
-temporary_size = temporary_size->next;
+fprintf(stderr, "L%u: can't pop an empty stack\n", line_num);
+free_all();
+exit(EXIT_FAILURE);
 }
+
+temporary_size = *stack_list;
+*stack_list = temporary_size->next;
+if (temporary_size->next)
+temporary_size->next->prev = NULL;
+free(temporary_size);
 }
 
 /**

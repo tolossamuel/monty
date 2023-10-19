@@ -42,3 +42,4 @@ while (getline(&var.buffer, &var.temporary_size, var.file_pointer) != EOF)
 free_all();
 return (EXIT_SUCCESS);
 }
+
