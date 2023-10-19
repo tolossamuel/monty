@@ -78,5 +78,6 @@ vars var;
 void pall(stack_t **stack_list, unsigned int line_num);
 void push(stack_t **stack_list, unsigned int line_num);
 void pint(stack_t **stack_list, unsigned int line_num);
+void push(stack_t **stack_list, unsigned int line_num);
 
 #endif
