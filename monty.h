@@ -75,4 +75,7 @@ int operation_mode;
 extern vars var;
 vars var;
 
+void pall(stack_t **stack_list, unsigned int line_num);
+void push(stack_t **stack_list, unsigned int line_num);
+
 #endif
