@@ -16,8 +16,8 @@
 
 /**
  * struct instruction_s - Opcode and its corresponding action function
- * @operation_code: The opcode string
- * @action_function: A pointer to the function that executes the action
+ * @opcode: The opcode string
+ * @f: A pointer to the function that executes the action
  *
  * Description: This structure defines an operation code and its associated
  * function for stack, queues, LIFO, or FIFO operations.
@@ -25,24 +25,24 @@
 
 typedef struct instruction_s
 {
-char *operation_code;
-void (*action_function)(stack_t **stack, unsigned int line_number);
+char *opcode;
+void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
  * struct stack_s - Element in a Stack
- * @value: The value stored in the element
+ * @n: The n stored in the element
  * @prev: A pointer to the previous element in the stack
  * @next: A pointer to the next element in the stack
  *
  * Description: This structure represents an element within
  * a stack data structure.
- * It holds a value, and links to both the previous and next
+ * It holds a n, and links to both the previous and next
  * elements in the stack.
  */
 typedef struct stack_s
 {
-int value;
+int n;
 struct stack_s *prev;
 struct stack_s *next;
 } stack_t;

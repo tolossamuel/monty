@@ -13,7 +13,7 @@ fprintf(stderr, "L%u: can't pint, stack empty\n", line_num);
 free_all();
 exit(EXIT_FAILURE);
 }
-printf("%d\n", (*stack_list)->value);
+printf("%d\n", (*stack_list)->n);
 }
 
 /**
@@ -30,7 +30,7 @@ if (!temporary_size)
 return;
 while (temporary_size)
 {
-printf("%d\n", temporary_size->value);
+printf("%d\n", temporary_size->n);
 temporary_size = temporary_size->next;
 }
 }

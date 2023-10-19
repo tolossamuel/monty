@@ -24,7 +24,7 @@ free(temporary_size);
 }
 
 /**
- * push - Insert a new value in list
+ * push - Insert a new n in list
  * @stack_list: A doubly linked list
  * @line_num: The line number in the file being executed
  */
@@ -48,7 +48,7 @@ fprintf(stderr, "Error: malloc failed\n");
 free_all();
 exit(EXIT_FAILURE);
 }
-temporary_size->value = atoi(num);
+temporary_size->n = atoi(num);
 if (var.operation_mode == 0 || !*stack_list)
 {
 temporary_size->next = *stack_list;
