@@ -2,15 +2,15 @@
 
 /**
  * main - Entry point for the LIFO/FILO program
- * @ac: Number of command-line arguments
+ * @num: Number of command-line arguments
  * @av: Array of command-line arguments
  * Return: 0 for Success, 1 for Failure
  */
-int main(int ac, char **av)
+int main(int num, char **av)
 {
 char *opcode;
 
-if (ac != 2)
+if (num != 2)
 {
 	fprintf(stderr, "USAGE: monty file\n");
 	return (EXIT_FAILURE);
