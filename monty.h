@@ -76,5 +76,5 @@ void pint(stack_t **stack_list, unsigned int line_num);
 void addNode(stack_t **head, int n);
 void addQueue(stack_t **head, int n);
 void pop(stack_t **stack_list, unsigned int line_num);
-
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 #endif
