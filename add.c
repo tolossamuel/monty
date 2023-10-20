@@ -16,7 +16,7 @@ void addNode(stack_t **customStack, unsigned int line_num)
 
 	if (!customStack || !*customStack || !((*customStack)->next))
 	{
-		fprintf(stderr, "L%d: can't add, customStack too short\n", line_num);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
 		exit(EXIT_FAILURE);
 	}
 
