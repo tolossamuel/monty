@@ -47,38 +47,6 @@ stack_t *Queue(stack_t **customStack, const int n)
 }
 
 /**
- * addBeginning - Inserts a node at the beginning of a stack_t customStack.
- *
- * @customStack: The head of the customStack.
- * @n: The value for the new node.
- *
- * Returns: The newly created node; if creation is unsuccessful,
- * the function will return NULL.
- * Return: stack_t new
- */
-stack_t *addBeginning(stack_t **customStack, const int n)
-{
-	stack_t *new = malloc(sizeof(stack_t));
-
-	if (!new)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		free(new);
-		return (NULL);
-	}
-	new->n = n;
-
-	new->next = *customStack;
-	new->prev = NULL;
-	if (*customStack)
-	(*customStack)->prev = new;
-
-	*customStack = new;
-
-	return (new);
-}
-
-/**
  * printStack - Displays the contents of a stack_t customStack.
  *
  * @customStack: The head of the customStack.
