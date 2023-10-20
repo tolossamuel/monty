@@ -16,7 +16,7 @@ void mul(stack_t **customStack, unsigned int line_num)
 
 	if (!customStack || !*customStack || !((*customStack)->next))
 	{
-		fprintf(stderr, "L%d: can't mul, customStack too short\n", line_num);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_num);
 		exit(EXIT_FAILURE);
 		return;
 	}
