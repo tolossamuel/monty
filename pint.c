@@ -12,7 +12,7 @@ void pint(stack_t **customStack, unsigned int line_num)
 {
 	if (!customStack || !(*customStack))
 	{
-		fprintf(stderr, "L%d: can't pint, customStack empty\n", line_num);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_num);
 		exit(EXIT_FAILURE);
 
 	}
